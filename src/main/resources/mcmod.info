@@ -1,0 +1,19 @@
+[
+  {
+    "modid": "cyanidehack",
+    "name": "CyanideHack",
+    "description": "",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "https://github.com/Niehein/CyanideHack",
+    "updateUrl": "",
+    "authorList": [
+      "Niehein",
+      "FloGo3308"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
