@@ -10,8 +10,10 @@ import net.minecraft.client.renderer.GlStateManager;
 public class HUD extends Gui {
     private Minecraft mc = Minecraft.getMinecraft();
 
-    int offset = 2;
-    String[] list0 = {
+
+    public int offset = 2;
+    public float scale = 1.5F;
+    public String[] list0 = {
             "a",
             "b",
             "c",
@@ -24,12 +26,12 @@ public class HUD extends Gui {
         FontRenderer fr = mc.fontRenderer;
         int count = 0;
 
-        GlStateManager.scale(2, 2, 1);
+        GlStateManager.scale(scale, scale, 1);
         for (String str : list0) {
             fr.drawStringWithShadow(str, offset, offset + (fr.FONT_HEIGHT+offset) * count, CyanideHack.getRainbow(1, count*10).getRGB());
             count++;
         }
-        GlStateManager.scale(0.5, 0.5, 1);
+        GlStateManager.scale(1/scale, 1/scale, 1);
         GlStateManager.color(1.0F, 1.0F, 1.0F);
     }
 }
