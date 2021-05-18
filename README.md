@@ -4,6 +4,7 @@
 # Get your personal info stolen today!*
 ## Stolen info includes:
 - Ip adress
+- The numbers at the back of your credit card
 - Virginity
 - Gorilla Porn
 - Mom
@@ -12,6 +13,5 @@
 - Ping
 - Robux
 - FPS(???)
-- And whatever the fuck not.
 
 \*=no info is actualy stolen please god I dont want legal shit aaaaaaa
