@@ -1,0 +1,32 @@
+# This workflow will build a Java project with Gradle
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle
+
+name: Nightly build
+
+on:
+  schedule:
+    - cron:  '45 23 * * *'
+  workflow_dispatch:
+
+jobs:
+  nightly:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 8
+      uses: actions/setup-java@v2
+      with:
+        java-version: '8'
+        distribution: 'adopt'
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+    - name: Change the version to Nightly-day-month-year
+      run: NOW=$( date '+%d-%m-%y' ) && TOMORROW=$( date --date="next day" '+%d-%m-%y' ) && echo "$NOW" && sed -i "16s/.*/version = \"NIGHTLY-$NOW-TO-$TOMORROW\"/" build.gradle
+    - name: Build
+      run: ./gradlew build
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: artifacts
+        path: build/libs
