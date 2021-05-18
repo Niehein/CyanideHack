@@ -67,7 +67,7 @@ public class CyanideHack {
     }
 
     public static Color getRainbow(float speed, int offset) {
-        float x = (System.currentTimeMillis()+offset*1000) % 2000 / 1000F;
+        float x = (System.currentTimeMillis()+offset*100) % 2000 / 1000F;
         float red = 0.5F + 0.5F * MathHelper.sin(x * (float)Math.PI);
         float green = 0.5F + 0.5F * MathHelper.sin((x + 4F / 3F) * (float)Math.PI);
         float blue = 0.5F + 0.5F * MathHelper.sin((x + 8F / 3F) * (float)Math.PI);
