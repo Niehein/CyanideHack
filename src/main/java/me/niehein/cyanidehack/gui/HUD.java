@@ -59,7 +59,7 @@ public class HUD extends Gui {
         GlStateManager.scale(scale, scale, 1);
         for (String str : list0) {
             int countForLambdaCuzLambdaPooPoo = count;
-            fr.drawStringWithShadow(str, offset, offset + (fr.FONT_HEIGHT+offset) * count, Arrays.stream(dead).anyMatch(i -> i == countForLambdaCuzLambdaPooPoo) ? CyanideHack.getRainbow(1, count+5).getRGB() : CyanideHack.getRainbow(1, count).getRGB());
+            fr.drawStringWithShadow(str, offset, offset + (fr.FONT_HEIGHT+offset) * count, Arrays.stream(dead).anyMatch(i -> i == countForLambdaCuzLambdaPooPoo) ? CyanideHack.getRainbow(1, count+7).getRGB() : CyanideHack.getRainbow(1, count).getRGB());
             count++;
         }
         GlStateManager.scale(1/scale, 1/scale, 1);
