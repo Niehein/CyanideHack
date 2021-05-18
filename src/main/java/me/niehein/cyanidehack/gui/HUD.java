@@ -12,13 +12,37 @@ public class HUD extends Gui {
 
 
     public int offset = 2;
-    public float scale = 1.5F;
+    public float scale = 1.15F;
     public String[] list0 = {
-            "a",
-            "b",
-            "c",
-            "d",
-            "e"
+            "KillAura",
+            "AntiKnockback",
+            "NoSlowDown",
+            "Criticals",
+            "Flight",
+            "Step",
+            "Shulkerpreview",
+            "B-hop",
+            "Reach",
+            "Speed",
+            "Aimbot",
+            "Annoy",
+            "NieheinCumDupe",
+            "CrystalESP",
+            "AntiBlind",
+            "AutoTool",
+            "FastFall",
+            "Elytra+",
+            "Freecam",
+            "StorageESP",
+            "FreeMove",
+            "Headless",
+            "AntiCactus",
+            "Offhand",
+            "Breadcrumbs",
+            "ImpossibleInventory",
+            "GodMode",
+            "Skeleton",
+
     };
 
     public void draw() {
