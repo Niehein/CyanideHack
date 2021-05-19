@@ -13,7 +13,7 @@ public class HUD extends Gui {
     private Minecraft mc = Minecraft.getMinecraft();
 
 
-    public int offset = 2;
+    public int offset = 3;
     public float scale = 1.15F;
     public int[] dead = {
             1,
@@ -51,18 +51,15 @@ public class HUD extends Gui {
 
     };
 
+    public HUDList hudDinges0= new HUDList(0, 0, offset, scale, 0, direction.LEFT, dead, list0);
+    public HUDList hudDinges1= new HUDList(0, 0, offset, scale, 0, direction.RIGHT, dead, list0);
+    public HUDList hudDinges2= new HUDList(0, 0, offset, scale, 1, direction.LEFT, dead, list0);
+
     public void draw() {
         ScaledResolution sr = new ScaledResolution(mc);
-        FontRenderer fr = mc.fontRenderer;
-        int count = 0;
-
-        GlStateManager.scale(scale, scale, 1);
-        for (String str : list0) {
-            int countForLambdaCuzLambdaPooPoo = count;
-            fr.drawStringWithShadow(str, offset, offset + (fr.FONT_HEIGHT+offset) * count, Arrays.stream(dead).anyMatch(i -> i == countForLambdaCuzLambdaPooPoo) ? CyanideHack.getRainbow(1, count+7).getRGB() : CyanideHack.getRainbow(1, count).getRGB());
-            count++;
-        }
-        GlStateManager.scale(1/scale, 1/scale, 1);
-        GlStateManager.color(1.0F, 1.0F, 1.0F);
+        hudDinges0.render();
+        hudDinges1.setX(sr.getScaledWidth());
+        hudDinges1.render();
+        hudDinges2.render();
     }
 }
