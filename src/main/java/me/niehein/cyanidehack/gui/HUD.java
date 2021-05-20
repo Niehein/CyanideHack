@@ -30,7 +30,7 @@ public class HUD extends Gui {
             "Speed",
             "Aimbot",
             "Annoy",
-            "NieheinsCumDupe",
+            "NieheinCumDupe", //ITS THE NIEHEINCUMDUPE DON'T YOU DARE CHANGING IT AGAIN!!!!!!11!!!
             "CrystalESP",
             "AntiBlind",
             "AutoTool",
@@ -69,7 +69,7 @@ public class HUD extends Gui {
     public HUDList hudListLeft = new HUDList(0, 0, -10, offset, EnumSide.LEFT, dead, 3, 1, list0);
     public HUDList hudListRight = new HUDList(0, 0, -10, offset, EnumSide.RIGHT, dead, 3, 1, list0);
     public HUDListWiggleBoi hudListWiggleWiggleWiggleWiggleWiggle = new HUDListWiggleBoi(0, 0, -10, offset, dead, 3, 1, list0);
-    public HUDList hudFitFagRidle = new HUDList(0, 0, Color.WHITE.getRGB(), offset, EnumSide.RIGHT, new int[]{}, 0.5F, 0, list1);
+    public HUDList hudFitFagRidle = new HUDList(0, 0, Color.GREEN.getRGB(), offset, EnumSide.RIGHT, new int[]{}, 0F, 0, list1);
 
     public void draw() {
         Minecraft mc = Minecraft.getMinecraft();
