@@ -22,4 +22,4 @@ Le epic Discord server: https://discord.gg/uXvPJC8wxC
 \*=no info is actualy stolen please god I dont want legal shit aaaaaaa
 
 
-Le epic Discord server: https://discord.gg/uXvPJC8wxC
+
