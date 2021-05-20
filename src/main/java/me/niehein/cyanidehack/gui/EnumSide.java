@@ -1,5 +1,5 @@
 package me.niehein.cyanidehack.gui;
 
-public enum direction {
+public enum EnumSide {
     LEFT, CENTER, RIGHT
 }

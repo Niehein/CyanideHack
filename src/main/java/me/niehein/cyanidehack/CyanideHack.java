@@ -1,19 +1,19 @@
 package me.niehein.cyanidehack;
 
+import javafx.util.Pair;
 import me.niehein.cyanidehack.gui.HUD;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
+import net.minecraft.client.Minecraft;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import scala.Int;
 
 import java.awt.*;
+import java.util.HashMap;
 
 @Mod(
         modid = CyanideHack.MOD_ID,
@@ -26,6 +26,9 @@ public class CyanideHack {
     public static final String MOD_NAME = "CyanideHack";
     public static final String VERSION = "1.0-SNAPSHOT";
     public static HUD hud = new HUD();
+    public static Minecraft mc = Minecraft.getMinecraft();
+    public static HashMap<cacheKey, Color> cache = new HashMap<>();
+    public static long timeForCurrentFrame;
 
     /**
      * This is the instance of your mod as created by Forge. It will never be null.
@@ -62,27 +65,69 @@ public class CyanideHack {
     public static class ObjectRegistryHandler {
         @SubscribeEvent
         public static void renderGUI(RenderGameOverlayEvent event) {
+            timeForCurrentFrame = System.currentTimeMillis();
             hud.draw();
+            cache.clear();
         }
     }
 
     public static Color getRainbow(float speed, int offset) {
-        float x = getRainbowX(speed, offset);
-        float red = 0.5F + 0.5F * MathHelper.sin(x * (float)Math.PI);
-        float green = 0.5F + 0.5F * MathHelper.sin((x + 4F / 3F) * (float)Math.PI);
-        float blue = 0.5F + 0.5F * MathHelper.sin((x + 8F / 3F) * (float)Math.PI);
-        return new Color(red, green, blue);
+        Color cacheCheck = cache.get(new cacheKey(speed, offset));
+//        System.out.println(cacheCheck);
+        if (cacheCheck == null) {
+//            System.out.println(cacheCheck);
+            float x = getRainbowX(speed, offset);
+            float red = 0.5F + 0.5F * MathHelper.sin(x * (float)Math.PI);
+            float green = 0.5F + 0.5F * MathHelper.sin((x + 4F / 3F) * (float)Math.PI);
+            float blue = 0.5F + 0.5F * MathHelper.sin((x + 8F / 3F) * (float)Math.PI);
+            Color col =  new Color(red, green, blue);
+            cache.put(new cacheKey(speed, offset), col);
+            return col;
+        } else {
+            return cacheCheck;
+        }
     }
 
     public static int getRainbowWave(float speed, int offset, int size) {
-        float x = getRainbowX(speed, offset);
-        float red = 0.5F + 0.5F * MathHelper.sin(x * (float)Math.PI);
-        float green = 0.5F + 0.5F * MathHelper.sin((x + 4F / 3F) * (float)Math.PI);
-        float blue = 0.5F + 0.5F * MathHelper.sin((x + 8F / 3F) * (float)Math.PI);
-        return (int)(red*size);
+        return (int)((float)(getRainbow(speed, offset).getRed())/255*size);
     }
 
     public static float getRainbowX(float speed, int offset) {
-        return (float)(((double)(System.currentTimeMillis()+offset*100)*speed) % 2000 / 1000F);
+        return (float)(((double)(timeForCurrentFrame+offset*100)*speed) % 2000 / 1000F);
+    }
+}
+
+/**
+ * Fuck you {@link HashMap}!
+ */
+class cacheKey {
+    public float speed;
+    public int offset;
+
+    public cacheKey(float speed, int offset) {
+        this.speed = speed;
+        this.offset = offset;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (int)(speed * 1000 + offset); //TODO this is dumb :(, offsets above 100 will brake
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        cacheKey other = (cacheKey) obj;
+        if (speed != other.speed || offset != other.offset)
+            return false;
+        return true;
     }
 }
