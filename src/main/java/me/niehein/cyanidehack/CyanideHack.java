@@ -65,8 +65,10 @@ public class CyanideHack {
     public static class ObjectRegistryHandler {
         @SubscribeEvent
         public static void renderGUI(RenderGameOverlayEvent event) {
-            timeForCurrentFrame = System.currentTimeMillis();
-            hud.draw();
+            if (event.getType() == RenderGameOverlayEvent.ElementType.HOTBAR) {
+                timeForCurrentFrame = System.currentTimeMillis();
+                hud.draw();
+            }
             cache.clear();
         }
     }
