@@ -2,6 +2,8 @@
 [![Nightly build](https://github.com/Niehein/CyanideHack/actions/workflows/nightly.yml/badge.svg)](https://github.com/Niehein/CyanideHack/actions/workflows/nightly.yml)
 ![Discord Shield](https://discordapp.com/api/guilds/844468711761903627/widget.png?style=shield)
 
+Le epic Discord server: https://discord.gg/uXvPJC8wxC
+
 # Get your personal info stolen today!*
 ## Stolen info includes:
 - Ip adress
