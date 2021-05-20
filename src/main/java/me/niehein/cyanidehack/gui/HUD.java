@@ -54,6 +54,7 @@ public class HUD extends Gui {
     public HUDList hudDinges0= new HUDList(0, 0, offset, scale, 0, direction.LEFT, dead, list0);
     public HUDList hudDinges1= new HUDList(0, 0, offset, scale, 0, direction.RIGHT, dead, list0);
     public HUDList hudDinges2= new HUDList(0, 0, offset, scale, 1, direction.LEFT, dead, list0);
+    public HUDList hudDinges3= new HUDList(0, 0, offset, scale, 0, direction.LEFT, dead, list0);
 
     public void draw() {
         ScaledResolution sr = new ScaledResolution(mc);
@@ -61,5 +62,8 @@ public class HUD extends Gui {
         hudDinges1.setX(sr.getScaledWidth());
         hudDinges1.render();
         hudDinges2.render();
+        hudDinges3.setX(sr.getScaledWidth()/4*3);
+        hudDinges3.setY(sr.getScaledHeight()/4*3);
+        hudDinges3.render();
     }
 }
