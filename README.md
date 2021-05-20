@@ -1,6 +1,7 @@
 [![Build](https://github.com/Niehein/CyanideHack/actions/workflows/build.yml/badge.svg)](https://github.com/Niehein/CyanideHack/actions/workflows/build.yml)
 [![Nightly build](https://github.com/Niehein/CyanideHack/actions/workflows/nightly.yml/badge.svg)](https://github.com/Niehein/CyanideHack/actions/workflows/nightly.yml)
-![Discord Shield](https://discordapp.com/api/guilds/844468711761903627/widget.png?style=shield)
+
+![Discord Shield](https://discordapp.com/api/guilds/844468711761903627/widget.png?style=banner2)
 
 Le epic Discord server: https://discord.gg/uXvPJC8wxC
 
