@@ -27,7 +27,7 @@ public class CyanideHack {
     public static final String VERSION = "1.0-SNAPSHOT";
     public static HUD hud = new HUD();
     public static Minecraft mc = Minecraft.getMinecraft();
-    public static HashMap<cacheKey, Color> cache = new HashMap<>();
+    public static HashMap<Float, Color> cache = new HashMap<>();
     public static long timeForCurrentFrame;
 
     /**
@@ -72,16 +72,15 @@ public class CyanideHack {
     }
 
     public static Color getRainbow(float speed, int offset) {
-        Color cacheCheck = cache.get(new cacheKey(speed, offset));
-//        System.out.println(cacheCheck);
+        float x = getRainbowX(speed, offset);
+        Color cacheCheck = cache.get(x);
+//        System.out.println(cacheCheck+" "+x);
         if (cacheCheck == null) {
-//            System.out.println(cacheCheck);
-            float x = getRainbowX(speed, offset);
             float red = 0.5F + 0.5F * MathHelper.sin(x * (float)Math.PI);
             float green = 0.5F + 0.5F * MathHelper.sin((x + 4F / 3F) * (float)Math.PI);
             float blue = 0.5F + 0.5F * MathHelper.sin((x + 8F / 3F) * (float)Math.PI);
             Color col =  new Color(red, green, blue);
-            cache.put(new cacheKey(speed, offset), col);
+            cache.put(x, col);
             return col;
         } else {
             return cacheCheck;
@@ -93,7 +92,7 @@ public class CyanideHack {
     }
 
     public static float getRainbowX(float speed, int offset) {
-        return (float)(((double)(timeForCurrentFrame+offset*100)*speed) % 2000 / 1000F);
+        return (float)(((double)(timeForCurrentFrame+offset* 100L)*speed) % 2000 / 1000F);
     }
 }
 

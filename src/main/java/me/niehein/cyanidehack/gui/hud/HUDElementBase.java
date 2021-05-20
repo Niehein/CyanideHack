@@ -1,14 +1,20 @@
 package me.niehein.cyanidehack.gui.hud;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.client.gui.ScaledResolution;
 
 public class HUDElementBase {
-    private Minecraft mc = Minecraft.getMinecraft();
+    public Minecraft mc = Minecraft.getMinecraft();
+    public ScaledResolution sr = new ScaledResolution(mc);
+    public FontRenderer fr = mc.fontRenderer;
     public int x;
     public int y;
 
-    public void draw() {
-
+    public void render() {
+        mc = Minecraft.getMinecraft();
+        sr = new ScaledResolution(mc);
+        fr = mc.fontRenderer;
     }
 
     public void setX(int x) {
