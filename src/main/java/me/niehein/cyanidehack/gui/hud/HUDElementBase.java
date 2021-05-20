@@ -10,6 +10,7 @@ public class HUDElementBase {
     public FontRenderer fr = mc.fontRenderer;
     public int x;
     public int y;
+    public int color;
 
     public void render() {
         mc = Minecraft.getMinecraft();
@@ -23,5 +24,9 @@ public class HUDElementBase {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public void setColor(int color) {
+        this.color = color;
     }
 }
