@@ -19,3 +19,6 @@ How to activate CyanideHack: press 6+9
 - FPS(???)
 
 \*=no info is actualy stolen please god I dont want legal shit aaaaaaa
+
+
+Le epic Discord server: https://discord.gg/uXvPJC8wxC
