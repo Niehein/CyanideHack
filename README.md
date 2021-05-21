@@ -21,5 +21,4 @@
 
 \*=no info is actualy stolen please god I dont want legal shit aaaaaaa
 
-
-
+Also make sure to read the license or something idduno :)
