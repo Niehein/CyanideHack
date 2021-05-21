@@ -22,4 +22,4 @@
 \*=no info is actualy stolen please god I dont want legal shit aaaaaaa
 
 
-k
+
