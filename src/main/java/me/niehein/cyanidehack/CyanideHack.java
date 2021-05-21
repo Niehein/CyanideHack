@@ -1,5 +1,6 @@
 package me.niehein.cyanidehack;
 
+import me.niehein.cyanidehack.gui.ColorUnicornPuke;
 import me.niehein.cyanidehack.gui.HUD;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.math.MathHelper;
@@ -94,6 +95,10 @@ public class CyanideHack {
 
     public static float getRainbowX(float speed, int offset) {
         return (float)(((double)(timeForCurrentFrame+offset* 100L)*speed) % 2000 / 1000F);
+    }
+
+    public static boolean isRainbow(Object color) {
+        return color instanceof ColorUnicornPuke;
     }
 }
 

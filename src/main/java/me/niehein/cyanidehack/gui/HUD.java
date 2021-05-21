@@ -66,10 +66,14 @@ public class HUD extends Gui {
             " \"The oldest anarchy server in Minecraft\". He logs off. Fit is love. Fit is life.",
     };
 
-    public HUDList hudListLeft = new HUDList(0, 0, -10, offset, EnumSide.LEFT, dead, 3, 1, list0);
-    public HUDList hudListRight = new HUDList(0, 0, -10, offset, EnumSide.RIGHT, dead, 3, 1, list0);
-    public HUDListWiggleBoi hudListWiggleWiggleWiggleWiggleWiggle = new HUDListWiggleBoi(0, 0, -10, offset, dead, 3, 1, list0);
-    public HUDList hudFitFagRidle = new HUDList(0, 0, Color.GREEN.getRGB(), offset, EnumSide.RIGHT, new int[]{}, 0F, 0, list1);
+//    public HUDList hudListLeft = new HUDList(0, 0, -10, offset, EnumSide.LEFT, dead, 3, 1, list0);
+//    public HUDList hudListRight = new HUDList(0, 0, -10, offset, EnumSide.RIGHT, dead, 3, 1, list0);
+//    public HUDListWiggleBoi hudListWiggleWiggleWiggleWiggleWiggle = new HUDListWiggleBoi(0, 0, -10, offset, dead, 3, 1, list0);
+//    public HUDList hudFitFagRidle = new HUDList(0, 0, Color.GREEN.getRGB(), offset, EnumSide.RIGHT, new int[]{}, 0F, 0, list1);
+public HUDList hudListLeft = new HUDList(0, 0, new ColorUnicornPuke(3, 1, dead), offset, EnumSide.LEFT, list0);
+    public HUDList hudListRight = new HUDList(0, 0, new ColorUnicornPuke(3, 1, dead), offset, EnumSide.RIGHT, list0);
+    public HUDListWiggleBoi hudListWiggleWiggleWiggleWiggleWiggle = new HUDListWiggleBoi(0, 0, new ColorUnicornPuke(3, 1, dead), offset, list0);
+    public HUDList hudFitFagRidle = new HUDList(0, 0, Color.GREEN, offset, EnumSide.RIGHT, list1);
 
     public void draw() {
         Minecraft mc = Minecraft.getMinecraft();

@@ -10,7 +10,7 @@ public class HUDElementBase {
     public FontRenderer fr = mc.fontRenderer;
     public int x;
     public int y;
-    public int color;
+    public Object color;
 
     public void render() {
         mc = Minecraft.getMinecraft();
@@ -26,7 +26,7 @@ public class HUDElementBase {
         this.y = y;
     }
 
-    public void setColor(int color) {
+    public void setColor(Object color) {
         this.color = color;
     }
 }

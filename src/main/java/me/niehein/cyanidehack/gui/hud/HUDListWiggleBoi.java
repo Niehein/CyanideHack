@@ -1,28 +1,24 @@
 package me.niehein.cyanidehack.gui.hud;
 
 import me.niehein.cyanidehack.CyanideHack;
+import me.niehein.cyanidehack.gui.ColorUnicornPuke;
 import me.niehein.cyanidehack.gui.EnumSide;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
 
+import java.awt.*;
 import java.util.Arrays;
 
 public class HUDListWiggleBoi extends HUDElementBase{
     public int offset;
-    public int[] dead;
-    public float speed;
-    public float speedDead;
     public String[] list;
-    public HUDListWiggleBoi(int x, int y, int color, int offset, int[] dead, float speed, float speedDead, String[] list) {
+    public HUDListWiggleBoi(int x, int y, Object color, int offset, String[] list) {
         this.x = x;
         this.y = y;
         this.color = color;
         this.offset = offset;
-        this.dead = dead;
-        this.speed = speed;
-        this.speedDead = speedDead;
         this.list = list;
     }
 
@@ -33,7 +29,7 @@ public class HUDListWiggleBoi extends HUDElementBase{
 //        GlStateManager.scale(scale, scale, scale);
         for (String str : list) {
             int countForLambdaCuzLambdaPooPoo = count;
-            fr.drawStringWithShadow(str, x + offset + CyanideHack.getRainbowWave(0.2F, count, sr.getScaledWidth() - fr.getStringWidth(str) - offset * 2), y + offset + (fr.FONT_HEIGHT + offset) * count, color == -10 ? Arrays.stream(dead).anyMatch(i -> i == countForLambdaCuzLambdaPooPoo) ? CyanideHack.getRainbow(speedDead, count + 7).getRGB() : CyanideHack.getRainbow(speed, count).getRGB() : color);
+            fr.drawStringWithShadow(str, x + offset + CyanideHack.getRainbowWave(0.2F, count, sr.getScaledWidth() - fr.getStringWidth(str) - offset * 2), y + offset + (fr.FONT_HEIGHT + offset) * count, CyanideHack.isRainbow(color) ? ((ColorUnicornPuke) color).updateRainbowAndReturn(count) : ((Color)color).getRGB());
             count++;
         }
 //        GlStateManager.scale(1/scale, 1/scale, 1/scale);
