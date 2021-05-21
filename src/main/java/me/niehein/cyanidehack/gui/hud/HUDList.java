@@ -3,21 +3,18 @@ package me.niehein.cyanidehack.gui.hud;
 import me.niehein.cyanidehack.CyanideHack;
 import me.niehein.cyanidehack.gui.ColorUnicornPuke;
 import me.niehein.cyanidehack.gui.EnumSide;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
 
 import java.awt.*;
-import java.util.Arrays;
 
 public class HUDList extends HUDElementBase{
     public int offset;
     public EnumSide side;
     public String[] list;
-    public HUDList(int x, int y, Object color, int offset, EnumSide side, String[] list) {
+    public HUDList(int x, int y, float scale, Object color, int offset, EnumSide side, String[] list) {
         this.x = x;
         this.y = y;
+        this.scale = scale;
         this.color = color;
         this.offset = offset;
         this.side = side;
@@ -28,18 +25,18 @@ public class HUDList extends HUDElementBase{
         super.render();
         int count = 0;
 
-//        GlStateManager.scale(scale, scale, scale);
+        GlStateManager.scale(scale, scale, scale);
         for (String str : list) {
             int countForLambdaCuzLambdaPooPoo = count;
             if (side == EnumSide.LEFT) {
-                fr.drawStringWithShadow(str, x + offset, y + offset + (fr.FONT_HEIGHT + offset) * count, CyanideHack.isRainbow(color) ? ((ColorUnicornPuke) color).updateRainbowAndReturn(count) : ((Color)color).getRGB());
+                fr.drawStringWithShadow(str, x / scale + offset, y / scale + offset + (fr.FONT_HEIGHT + offset) * count, CyanideHack.isRainbow(color) ? ((ColorUnicornPuke) color).updateRainbowAndReturn(count) : ((Color)color).getRGB());
             } else if (side == EnumSide.RIGHT) {
 //                System.out.println(str+"  "+str.length());
-                fr.drawStringWithShadow(str, x-offset-fr.getStringWidth(str), y+offset + (fr.FONT_HEIGHT+offset) * count, CyanideHack.isRainbow(color) ? ((ColorUnicornPuke) color).updateRainbowAndReturn(count) : ((Color)color).getRGB());
+                fr.drawStringWithShadow(str, x / scale - offset - fr.getStringWidth(str), y / scale + offset + (fr.FONT_HEIGHT + offset) * count, CyanideHack.isRainbow(color) ? ((ColorUnicornPuke) color).updateRainbowAndReturn(count) : ((Color)color).getRGB());
             }
             count++;
         }
-//        GlStateManager.scale(1/scale, 1/scale, 1/scale);
+        GlStateManager.scale(1/scale, 1/scale, 1/scale);
         GlStateManager.color(1.0F, 1.0F, 1.0F);
     }
 

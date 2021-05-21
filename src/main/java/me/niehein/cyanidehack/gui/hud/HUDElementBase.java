@@ -11,6 +11,7 @@ public class HUDElementBase {
     public int x;
     public int y;
     public Object color;
+    public float scale;
 
     public void render() {
         mc = Minecraft.getMinecraft();
