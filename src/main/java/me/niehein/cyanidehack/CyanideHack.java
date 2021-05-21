@@ -1,6 +1,5 @@
 package me.niehein.cyanidehack;
 
-import javafx.util.Pair;
 import me.niehein.cyanidehack.gui.HUD;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.math.MathHelper;
