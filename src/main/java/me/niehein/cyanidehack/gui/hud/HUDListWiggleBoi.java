@@ -42,7 +42,7 @@ public class HUDListWiggleBoi extends HUDElementBase{
         GlStateManager.scale(scale, scale, scale);
         for (String str : list) {
             int countForLambdaCuzLambdaPooPoo = count;
-            fr.drawStringWithShadow(str, x / scale + offset + CyanideHack.getRainbowWave(0.2F, count, (int) (sr.getScaledWidth() / scale - fr.getStringWidth(str) - offset * 2)), y / scale + offset + (fr.FONT_HEIGHT + offset) * count, CyanideHack.isRainbow(color) ? ((ColorUnicornPuke) color).updateRainbowAndReturn(count) : ((Color)color).getRGB());
+            fr.drawStringWithShadow(str, x / scale + offset + CyanideHack.getRainbowWaveHUD(0.2F, count, (int) (sr.getScaledWidth() / scale - fr.getStringWidth(str) - offset * 2)), y / scale + offset + (fr.FONT_HEIGHT + offset) * count, CyanideHack.isRainbow(color) ? ((ColorUnicornPuke) color).updateRainbowAndReturn(count) : ((Color)color).getRGB());
             count++;
         }
         GlStateManager.scale(1/scale, 1/scale, 1/scale);

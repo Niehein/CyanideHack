@@ -37,7 +37,7 @@ public class ColorUnicornPuke extends Color {
     }
 
     public int updateRainbowAndReturn(int count) {
-        int a = Arrays.stream(dead).anyMatch(i -> i == count) ? CyanideHack.getRainbow(speedDead, count + 7).getRGB() : CyanideHack.getRainbow(speed, count).getRGB();
+        int a = Arrays.stream(dead).anyMatch(i -> i == count) ? CyanideHack.getRainbowHUD(speedDead, count + 7).getRGB() : CyanideHack.getRainbowHUD(speed, count).getRGB();
         colorRgb = a;
         return a;
     }
