@@ -113,12 +113,24 @@ public class HUD extends Gui {
             "WorldDownloader",
             "X-Ray"
     };
+    public String[] list3 = {
+            "FPS: ",
+            "Ping: ",
+            "TPS: ",
+    };
+    public String[] list4 = {
+            "3",
+            "420",
+            "9",
+    };
 
     public HUDList hudListLeft = new HUDList(0, 0, scale, new ColorUnicornPuke(3, 1, dead), offset, EnumSide.LEFT, list0);
     public HUDList hudListRight = new HUDList(0, 0, scale, new ColorUnicornPuke(3, 1, dead), offset, EnumSide.RIGHT, list0);
     public HUDListWiggleBoi hudListWiggleWiggleWiggleWiggleWiggle = new HUDListWiggleBoi(0, 0, scale, new ColorUnicornPuke(3, 1, dead), offset, list0);
     public HUDList hudFitFagRiddle = new HUDList(0, 0, scaleFitFagRiddle, Color.GREEN, offset, EnumSide.RIGHT, list1);
     public HUDList Hudlist2 = new HUDList(35, 60, scale, Color.BLUE, offset, EnumSide.LEFT, list2);
+    public HUDList Info = new HUDList(300, 40, scale, Color.WHITE, offset, EnumSide.LEFT, list3);
+    public HUDList Verrybadnumbers = new HUDList(328, 40, scale, Color.RED, offset, EnumSide.LEFT, list4);
 
     public void draw() {
         Minecraft mc = Minecraft.getMinecraft();
@@ -132,5 +144,7 @@ public class HUD extends Gui {
         hudFitFagRiddle.setY(sr.getScaledHeight() - hudFitFagRiddle.list.length * (fr.FONT_HEIGHT+ hudFitFagRiddle.offset));
         hudFitFagRiddle.render();
         Hudlist2.render();
+        Info.render();
+        Verrybadnumbers.render();
     }
 }
