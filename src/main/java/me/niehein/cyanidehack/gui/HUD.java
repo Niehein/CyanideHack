@@ -84,10 +84,41 @@ public class HUD extends Gui {
             " \"The oldest anarchy server in Minecraft\". He logs off. Fit is love. Fit is life.",
     };
 
+    public String[] list2 = {
+            "FreeMove",
+            "FastFall",
+            "Follow",
+            "Freecam",
+            "FastEat",
+            "Fullbright",
+            "FastLadder",
+            "AutoCondom",
+            "FightBot",
+            "GhostHand",
+            "HackSign",
+            "HealthTags",
+            "HighJump",
+            "ImpossibleInventory",
+            "ItemESP",
+            "GodMode",
+            "Insult",
+            "Jesus",
+            "Little baby Jesus",
+            "Jetpack",
+            "Liquids",
+            "MenuWalk",
+            "Trajectories",
+            "A little bit of troling",
+            "V-Clip",
+            "WorldDownloader",
+            "X-Ray"
+    };
+
     public HUDList hudListLeft = new HUDList(0, 0, scale, new ColorUnicornPuke(3, 1, dead), offset, EnumSide.LEFT, list0);
     public HUDList hudListRight = new HUDList(0, 0, scale, new ColorUnicornPuke(3, 1, dead), offset, EnumSide.RIGHT, list0);
     public HUDListWiggleBoi hudListWiggleWiggleWiggleWiggleWiggle = new HUDListWiggleBoi(0, 0, scale, new ColorUnicornPuke(3, 1, dead), offset, list0);
     public HUDList hudFitFagRiddle = new HUDList(0, 0, scaleFitFagRiddle, Color.GREEN, offset, EnumSide.RIGHT, list1);
+    public HUDList Hudlist2 = new HUDList(35, 60, scale, Color.BLUE, offset, EnumSide.LEFT, list2);
 
     public void draw() {
         Minecraft mc = Minecraft.getMinecraft();
@@ -100,5 +131,6 @@ public class HUD extends Gui {
         hudFitFagRiddle.setX(sr.getScaledWidth() - Arrays.stream(hudFitFagRiddle.list).map(String::length).max(Integer::compareTo).get());
         hudFitFagRiddle.setY(sr.getScaledHeight() - hudFitFagRiddle.list.length * (fr.FONT_HEIGHT+ hudFitFagRiddle.offset));
         hudFitFagRiddle.render();
+        Hudlist2.render();
     }
 }
