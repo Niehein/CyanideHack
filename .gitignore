@@ -118,4 +118,5 @@ run/
 !gradle-wrapper.jar
 
 # Copyright Files
-!/.idea/copyright/*.xml
+!/.idea/copyright/CyanideHackLicense.xml
+!/.idea/copyright/profiles_settings.xml
