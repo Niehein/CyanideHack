@@ -4,6 +4,7 @@
 [![Pull requests](https://img.shields.io/github/issues-pr/Niehein/CyanideHack?label=Pull%20requests)](https://github.com/Niehein/CyanideHack/pulls)
 [![Issues](https://img.shields.io/github/issues/Niehein/CyanideHack?label=Issues)](https://github.com/Niehein/CyanideHack/issues)
 [![Contributors](https://img.shields.io/github/contributors/Niehein/CyanideHack?label=Contributors)](https://github.com/Niehein/CyanideHack/graphs/contributors)
+[![Total amount of lines](https://img.shields.io/tokei/lines/github/Niehein/CyanideHack?label=Total%20amount%20of%20lines)]()
 
 
 # Get your personal info stolen today!*
