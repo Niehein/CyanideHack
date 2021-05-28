@@ -123,7 +123,38 @@ public class HUD extends Gui {
             "420",
             "9",
     };
-
+    public String[] list5 = {
+            "FuckedDetection",
+            "AnimalESP",
+            "PenisESP",
+            "Regen",
+            "Auto-Respawn",
+            "Derp",
+            "SafeWalk",
+            "Sneak",
+            "SleepWalk",
+            "SpeedMine",
+            "Spider",
+            "TP-Aura",
+            "ChildESP",
+            "Triggerbot",
+            "AutoSexdupe[Rage]",
+            "Antifog",
+            "Tracers",
+            "Throw",
+            "FakePlayer",
+            "Trajectories",
+            "A little bit of troling",
+            "V-Clip",
+            "Tpscync",
+            "SmallShieds",
+            "OffhandCrystal",
+            "HausemasterFinder",
+            "SpawnerEsp",
+            "WaifuESP",
+            "Tracers",
+            "Extrachathistory",
+    };
     public HUDList hudListLeft = new HUDList(0, 0, scale, new ColorUnicornPuke(3, 1, dead), offset, EnumSide.LEFT, list0);
     public HUDList hudListRight = new HUDList(0, 0, scale, new ColorUnicornPuke(3, 1, dead), offset, EnumSide.RIGHT, list0);
     public HUDListWiggleBoi hudListWiggleWiggleWiggleWiggleWiggle = new HUDListWiggleBoi(0, 0, scale, new ColorUnicornPuke(3, 1, dead), offset, list0);
@@ -131,6 +162,7 @@ public class HUD extends Gui {
     public HUDList Hudlist2 = new HUDList(35, 60, scale, Color.BLUE, offset, EnumSide.LEFT, list2);
     public HUDList Info = new HUDList(300, 40, scale, Color.WHITE, offset, EnumSide.LEFT, list3);
     public HUDList Verrybadnumbers = new HUDList(328, 40, scale, Color.RED, offset, EnumSide.LEFT, list4);
+    public HUDList Hudlist3 = new HUDList(600, 55, 1F, Color.RED, offset, EnumSide.LEFT, list5);
 
     public void draw() {
         Minecraft mc = Minecraft.getMinecraft();
@@ -146,5 +178,6 @@ public class HUD extends Gui {
         Hudlist2.render();
         Info.render();
         Verrybadnumbers.render();
+        Hudlist3.render();
     }
 }
