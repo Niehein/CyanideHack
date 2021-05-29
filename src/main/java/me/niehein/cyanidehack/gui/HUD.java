@@ -155,6 +155,16 @@ public class HUD extends Gui {
             "Tracers",
             "Extrachathistory",
     };
+    public String[] list6 = {
+            "CancerClient V6.9",
+    };
+    public String[] list7 = {
+            "CyanideHack V?",
+    };
+    public String[] list8 = {
+            "BrickHack V3.0",
+    };
+
     public HUDList hudListLeft = new HUDList(0, 0, scale, new ColorUnicornPuke(3, 1, dead), offset, EnumSide.LEFT, list0);
     public HUDList hudListRight = new HUDList(0, 0, scale, new ColorUnicornPuke(3, 1, dead), offset, EnumSide.RIGHT, list0);
     public HUDListWiggleBoi hudListWiggleWiggleWiggleWiggleWiggle = new HUDListWiggleBoi(0, 0, scale, new ColorUnicornPuke(3, 1, dead), offset, list0);
@@ -163,6 +173,9 @@ public class HUD extends Gui {
     public HUDList Info = new HUDList(300, 40, scale, Color.WHITE, offset, EnumSide.LEFT, list3);
     public HUDList Verrybadnumbers = new HUDList(328, 40, scale, Color.RED, offset, EnumSide.LEFT, list4);
     public HUDList Hudlist3 = new HUDList(600, 55, 1F, Color.RED, offset, EnumSide.LEFT, list5);
+    public HUDList Watermark1 = new HUDList(-3, 523, scale, Color.white, offset, EnumSide.LEFT, list6);
+    public HUDList Watermark2 = new HUDList(10, -3, scale, Color.cyan, offset, EnumSide.LEFT, list7);
+    public HUDList Watermark3 = new HUDList(875, 450, scale, Color.yellow, offset, EnumSide.LEFT, list8);
 
     public void draw() {
         Minecraft mc = Minecraft.getMinecraft();
@@ -179,5 +192,8 @@ public class HUD extends Gui {
         Info.render();
         Verrybadnumbers.render();
         Hudlist3.render();
+        Watermark1.render();
+        Watermark2.render();
+        Watermark3.render();
     }
 }
