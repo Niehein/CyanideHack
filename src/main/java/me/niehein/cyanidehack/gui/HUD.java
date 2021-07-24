@@ -164,6 +164,44 @@ public class HUD extends Gui {
     public String[] list8 = {
             "BrickHack V3.0",
     };
+    public String[] list9 = {
+            "BaseFinder",
+            "Blink",
+            "Breadcrumbs",
+            "AutoTotem",
+            "StorageESP",
+            "Pobbob sex dupe",
+            "Backstep",
+            "CaveFinder",
+            "ChestESP",
+            "Day",
+            "Hud",
+            "Fancy Chat",
+            "Elytra+",
+            "FastBuild",
+            "FastPlace",
+            "FreeMove",
+            "Eyefinder",
+            "FastFall",
+            "Follow",
+            "Freecam",
+            "FastEat",
+            "Fullbright",
+            "Newchunks",
+            "FastLadder",
+            "AutoCondom",
+            "FightBot",
+            "Glide",
+            "GhostHand",
+            "HackSign",
+            "Headless",
+            "HealthTags",
+            "HighJump",
+            "ImpossibleInventory",
+            "ItemESP",
+            "GodMode",
+            "Insult",
+    };
 
     public HUDList hudListLeft = new HUDList(0, 0, scale, new ColorUnicornPuke(3, 1, dead), offset, EnumSide.LEFT, list0);
     public HUDList hudListRight = new HUDList(0, 0, scale, new ColorUnicornPuke(3, 1, dead), offset, EnumSide.RIGHT, list0);
@@ -176,6 +214,7 @@ public class HUD extends Gui {
     public HUDList Watermark1 = new HUDList(-3, 523, scale, Color.white, offset, EnumSide.LEFT, list6);
     public HUDList Watermark2 = new HUDList(10, -3, scale, Color.cyan, offset, EnumSide.LEFT, list7);
     public HUDList Watermark3 = new HUDList(875, 450, scale, Color.yellow, offset, EnumSide.LEFT, list8);
+    public HUDList HudList4 = new HUDList(400, 30, scale, Color.magenta, offset, EnumSide.LEFT, list9);
 
     public void draw() {
         Minecraft mc = Minecraft.getMinecraft();
@@ -195,5 +234,6 @@ public class HUD extends Gui {
         Watermark1.render();
         Watermark2.render();
         Watermark3.render();
+        HudList4.render();
     }
 }
