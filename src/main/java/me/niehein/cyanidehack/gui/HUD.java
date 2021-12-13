@@ -108,7 +108,7 @@ public class HUD extends Gui {
             "Liquids",
             "MenuWalk",
             "Trajectories",
-            "A little bit of troling",
+            "A little bit of trolling",
             "V-Clip",
             "WorldDownloader",
             "X-Ray"

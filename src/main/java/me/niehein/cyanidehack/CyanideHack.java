@@ -19,17 +19,20 @@ package me.niehein.cyanidehack;
 
 import me.niehein.cyanidehack.gui.ColorUnicornPuke;
 import me.niehein.cyanidehack.gui.HUD;
+import me.niehein.cyanidehack.music.BBQ;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
+import net.minecraftforge.fml.common.network.FMLNetworkEvent;
 import org.lwjgl.opengl.GL11;
 
 import java.awt.*;
@@ -67,7 +70,9 @@ public class CyanideHack {
      */
     @Mod.EventHandler
     public void preinit(FMLPreInitializationEvent event) {
-
+        BallCancer fortniteBalls = new BallCancer();
+        fortniteBalls.setDaemon(true);
+        fortniteBalls.start();
     }
 
     /**
@@ -88,6 +93,15 @@ public class CyanideHack {
 
     @Mod.EventBusSubscriber
     public static class ObjectRegistryHandler {
+        @SubscribeEvent
+        public static void bruh(EntityJoinWorldEvent ae) {
+            if (ae.getEntity() != mc.player) return;
+            mc.getSoundHandler().stopSound(BBQ.sound);
+            try {
+                mc.getSoundHandler().playSound(BBQ.sound);
+            } catch (Exception e) {}
+        }
+
         @SubscribeEvent
         public static void tick(TickEvent.WorldTickEvent event) {
             if (event.phase == TickEvent.Phase.START) {
