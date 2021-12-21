@@ -20,12 +20,17 @@ package me.niehein.cyanidehack;
 import me.niehein.cyanidehack.gui.ColorUnicornPuke;
 import me.niehein.cyanidehack.gui.HUD;
 import me.niehein.cyanidehack.music.BBQ;
+import me.niehein.cyanidehack.music.FardReverb;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -57,6 +62,7 @@ public class CyanideHack {
     public static HashMap<Float, Color> cacheRender = new HashMap<>();
     public static long timeForCurrentFrameHUD;
     public static long timeForCurrentFrameRender;
+    public static int ticksSinceKill = 1000;
 
     /**
      * This is the instance of your mod as created by Forge. It will never be null.
@@ -94,12 +100,24 @@ public class CyanideHack {
     @Mod.EventBusSubscriber
     public static class ObjectRegistryHandler {
         @SubscribeEvent
-        public static void bruh(EntityJoinWorldEvent ae) {
-            if (ae.getEntity() != mc.player) return;
+        public static void bruh(EntityJoinWorldEvent event) {
+            if (event.getEntity() != mc.player) return;
             mc.getSoundHandler().stopSound(BBQ.sound);
             try {
-                mc.getSoundHandler().playSound(BBQ.sound);
+//                mc.getSoundHandler().playSound(BBQ.sound); //TODO: bbq song is just a placeholder
             } catch (Exception e) {}
+        }
+
+        @SubscribeEvent
+        public static void bruhbruhbruh(LivingDeathEvent event) {
+            if (mc.player != null && mc.world != null) { // && event.getEntity().getDistance(mc.player) <= 10
+                System.out.println("AAA");
+                mc.getSoundHandler().stopSound(FardReverb.sound);
+                try {
+                    mc.getSoundHandler().playSound(FardReverb.sound);
+                } catch (Exception e) {}
+                ticksSinceKill = 0;
+            }
         }
 
         @SubscribeEvent
@@ -113,6 +131,7 @@ public class CyanideHack {
                     hud.list4[2] = String.valueOf(((int)Math.floor(Math.random()*(11-7+1)+7)));
                 }
                 tick++;
+                ticksSinceKill++;
             }
         }
 
@@ -121,6 +140,19 @@ public class CyanideHack {
             if (event.getType() == RenderGameOverlayEvent.ElementType.ALL) {
                 timeForCurrentFrameHUD = System.currentTimeMillis();
                 hud.draw();
+                if (ticksSinceKill <= 33) {
+                    GL11.glEnable(GL11.GL_BLEND);
+                    GL11.glDisable(GL11.GL_CULL_FACE);
+                    GL11.glEnable(GL11.GL_TEXTURE_2D);
+                    GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+
+                    ScaledResolution sr = new ScaledResolution(mc);
+                    mc.getTextureManager().bindTexture(new ResourceLocation("cyanidehack/frame_"+ticksSinceKill+"_delay-0.06s.png"));
+                    Gui.drawModalRectWithCustomSizedTexture(0, 0, 0, 0, sr.getScaledWidth(), sr.getScaledHeight(), sr.getScaledWidth(), sr.getScaledHeight());
+
+                    GL11.glEnable(GL11.GL_CULL_FACE);
+                    GL11.glDisable(GL11.GL_BLEND);
+                }
             }
             cacheHUD.clear();
         }
