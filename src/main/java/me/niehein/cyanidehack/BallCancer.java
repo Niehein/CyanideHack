@@ -33,17 +33,11 @@ public class BallCancer extends Thread{
         while (true) {
             if (mc.currentScreen instanceof GuiMainMenu) {
                 if (ooo) {
+                    mc.getSoundHandler().stopSound(BBQ.sound);
                     try {
-                        Field ae = SoundHandler.class.
-                                getDeclaredField("soundRegistry");
-                        ae.setAccessible(true);
-                        SoundRegistry ae2 = (SoundRegistry) ae.get(mc.getSoundHandler());
-//                        System.out.println(ae2);
                         mc.getSoundHandler().playSound(BBQ.sound);
-                        ooo = false;
-                    } catch (NoSuchFieldException | IllegalAccessException e) {
-                        e.printStackTrace();
-                    }
+                    } catch (Exception e) {}
+                    ooo = false;
                 }
             } else {
                 ooo = true;

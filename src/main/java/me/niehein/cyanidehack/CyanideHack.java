@@ -21,7 +21,9 @@ import me.niehein.cyanidehack.gui.ColorUnicornPuke;
 import me.niehein.cyanidehack.gui.HUD;
 import me.niehein.cyanidehack.music.BBQ;
 import me.niehein.cyanidehack.music.FardReverb;
+import me.niehein.cyanidehack.music.YouDiedFarde;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.audio.ISound;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.entity.Entity;
@@ -36,6 +38,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.network.FMLNetworkEvent;
 import org.lwjgl.opengl.GL11;
@@ -101,7 +104,7 @@ public class CyanideHack {
     public static class ObjectRegistryHandler {
         @SubscribeEvent
         public static void bruh(EntityJoinWorldEvent event) {
-            if (event.getEntity() != mc.player) return;
+//            if (event.getEntity() != mc.player) return;
             mc.getSoundHandler().stopSound(BBQ.sound);
             try {
 //                mc.getSoundHandler().playSound(BBQ.sound); //TODO: bbq song is just a placeholder
@@ -109,12 +112,25 @@ public class CyanideHack {
         }
 
         @SubscribeEvent
+        public static void bruhbruh(PlayerEvent.PlayerRespawnEvent event) {
+            mc.getSoundHandler().stopSound(YouDiedFarde.sound);
+        }
+
+        @SubscribeEvent
         public static void bruhbruhbruh(LivingDeathEvent event) {
             if (mc.player != null && mc.world != null) { // && event.getEntity().getDistance(mc.player) <= 10
                 System.out.println("AAA");
-                mc.getSoundHandler().stopSound(FardReverb.sound);
+                ISound sound = null;
+                if (event.getEntity().getDisplayName().equals(mc.player.getDisplayName())) {
+                    sound = YouDiedFarde.sound;
+
+                } else {
+                    sound = FardReverb.sound;
+                    ticksSinceKill  = 0;
+                }
+                mc.getSoundHandler().stopSound(sound);
                 try {
-                    mc.getSoundHandler().playSound(FardReverb.sound);
+                    mc.getSoundHandler().playSound(sound);
                 } catch (Exception e) {}
             }
         }

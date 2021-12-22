@@ -28,9 +28,9 @@ import javax.annotation.Nullable;
 
 import static me.niehein.cyanidehack.CyanideHack.mc;
 
-public class BBQ {
+public class YouDiedFarde {
     public static final ISound sound;
-    private static final String song = "bbq";
+    private static final String song = "youdiedfarde";
     private static final ResourceLocation loc = new ResourceLocation("sounds/" + song + ".ogg");
 
     static {
