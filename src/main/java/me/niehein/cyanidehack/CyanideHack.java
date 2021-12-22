@@ -116,7 +116,6 @@ public class CyanideHack {
                 try {
                     mc.getSoundHandler().playSound(FardReverb.sound);
                 } catch (Exception e) {}
-                ticksSinceKill = 0;
             }
         }
 
